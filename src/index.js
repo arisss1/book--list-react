@@ -1,22 +1,26 @@
 import React from "react";
 import ReactDom from "react-dom";
-
-//ES6, Nested Components and React Tools
+import "./index.css";
 
 function Books() {
   return (
-    <section>
+  	<div><h1 style={{ textAlign: "center", color: "#630c50", letterSpacing: "8px" }}>Book List</h1>
+    <section className="books">
+      <Book />
       <Book />
       <Book />
       <Book />
       <Book />
       <Book />
     </section>
+    </div>
   );
 }
+
+
 const Book = () => {
   return (
-    <article>
+    <article className="book">
       <CoverImage />
       <Title />
       <Author />
@@ -30,7 +34,14 @@ const CoverImage = () => (
     alt="wonkey donkey"
   />
 );
-const Title = () => <h1>The Wonkey Donkey</h1>;
-const Author = () => <p>by Aris Skatsikas</p>;
+const Title = () => (
+  <h1 style={{ fontSize: "2rem", color: "red" }}>The Wonkey Donkey</h1>
+);
+const authorStyle = {
+  letterSpacing: "10px",
+  color: "green"
+};
+
+const Author = () => <p style={authorStyle}>by Aris Skatsikas</p>;
 
 ReactDom.render(<Books />, document.getElementById("root"));
